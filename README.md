@@ -48,34 +48,58 @@ NAVER-BLOG-ID=[네이버 ID]
 NAVER-BLOG-PASS=[API 연결 암호]
 ```
 
+model
+```
+use lovizu\LaravelNaverXmlRpc\Model\NaverBlog;
+
+Class Model implements NaverBlog
+{
+    // 필수 메서드 작성
+    public function getTitle(){
+        // @return string title
+    };
+    
+    public function getContext(){
+        // @return string context
+    };
+    
+    public function getTags(){
+        // @return null|array|string tags
+    };
+    
+    public function getCategory(){
+        // @return string category
+    };
+    
+    public function getSecret(){
+        // @return bool secret
+    };
+    
+    public function getPostId(){
+        // @return int post id
+    };
+}
+```
+
 
 ## 예제 ##
 
 ```
 // 글쓰기
-@ 공개여부 : [boolean]
-@ 제목 : [string]
-@ 내용 : [string] 안내-img 태그로 작성된 이미지는 모두 네이버로 업로드
-@ 카테고리 : [null|string] 주의-블로그 카테고리명과 띄어쓰기 까지 일치, 안내-미 입력시 기본 카테고리로 저장
-@ 태그 : [null|array|string] 안내-배열 혹은 ',' 로 태그 구분
-@ return : [integer] 포스트ID 안내-삭제, 수정할때 필요
-NaverBlog::NewBlog('공개여부','제목', '내용', '카테고리', '태그');
+//@ 모델 : [NaverBlog]
+//@ return : [integer] 포스트ID 안내-삭제, 수정할때 필요
+NaverBlog::NewBlog($model);
 
 
 // 글수정 (네이버 정책변경으로 글수정 불가, 기존글 삭제 후 새로 작성 로직)
-//@ 포스트ID : [integer]
-@ 공개여부 : [boolean]
-//@ 제목 : [string]
-//@ 내용 : [string] 안내-img 태그로 작성된 이미지는 모두 네이버로 업로드
-//@ 카테고리 : [null|string] 주의-블로그 카테고리명과 띄어쓰기 까지 일치, 안내-미 입력시 기본 카테고리로 저장
-//@ 태그 : [null|array|string] 안내-배열 혹은 ',' 로 태그 구분
+//@ 모델 : [NaverBlog]
 //@ return : [integer] 포스트ID 안내-삭제, 수정할때 필요
-NaverBlog::EditBlog($postId,'공개여부', '제목', '내용', '카테고리' ,'태그');
+NaverBlog::EditBlog($model);
 
 // 글삭제
-//@ 포스트ID : [integer]
+//@ 모델 : [NaverBlog]
 //@ return : [array]
-NaverBlog::DelBlog($postId);
+NaverBlog::DelBlog($model);
 ```
 
 `TODO : phpunit`

@@ -2,6 +2,7 @@
 
 namespace lovizu\LaravelNaverXmlRpc;
 
+use lovizu\LaravelNaverXmlRpc\Model\NaverBlog;
 use Lovizu\NaverXmlRpc\NaverBlogXml;
 
 class LaravelNaverXmlRpc
@@ -13,20 +14,33 @@ class LaravelNaverXmlRpc
         $this->naverBlog = new NaverBlogXml($blogId, $blogPass, $secret);
     }
 
-    public function newBlog($isSecret, $title, $context, $category = null, $tags = [])
+    public function newBlog(NaverBlog $blog)
     {
-        $this->naverBlog->setSecret($isSecret);
+        $this->naverBlog->setSecret($blog->getSecret());
+
+        $title = $blog->getTitle();
+        $context = $blog->getContext();
+        $category = $blog->getCategory();
+        $tags = $blog->getTags();
+
         return $this->naverBlog->newBlog($title, $context, $category, $tags);
     }
 
-    public function delBlog($postId)
+    public function delBlog(NaverBlog $blog)
     {
-        return $this->naverBlog->delBlog($postId);
+        return $this->naverBlog->delBlog($blog->getPostId());
     }
 
-    public function editBlog($postId, $isSecret, $title, $context, $category = null, $tags = [])
+    public function editBlog(NaverBlog $blog)
     {
-        $this->naverBlog->setSecret($isSecret);
+        $this->naverBlog->setSecret($blog->getSecret());
+
+        $title = $blog->getTitle();
+        $context = $blog->getContext();
+        $category = $blog->getCategory();
+        $tags = $blog->getTags();
+        $postId = $blog->getPostId();
+
         return $this->naverBlog->editBlog($postId, $title, $context, $category, $tags);
     }
 }
