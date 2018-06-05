@@ -1,0 +1,33 @@
+{
+    "name": "lovizu/laravel-naver-blog-xmlrpc",
+    "description": "Larvel Naver Blog Xmlprc API",
+    "keywords": ["laravel", "naver", "xmlprc", "api", "blog"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "lovizu",
+            "email": "help@lovizu.com",
+            "homepage": "https://www.lovizu.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "illuminate/support": "~5.5",
+        "lovizu/naver-blog-xmlrpc": "^0.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "lovizu\\LaravelNaverXmlRpc\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "lovizu\\LaravelNaverXmlRpc\\LaravelNaverXmlRpcServiceProvider"
+            ]
+        }
+    }
+}
