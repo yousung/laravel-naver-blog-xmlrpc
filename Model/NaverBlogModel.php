@@ -1,8 +1,8 @@
 <?php
 
-namespace lovizu\LaravelNaverXmlRpc;
+namespace lovizu\LaravelNaverXmlRpc\Model;
 
-interface NaverBlogModel
+interface NaverBlog
 {
     // @return string title
     public function getTitle();

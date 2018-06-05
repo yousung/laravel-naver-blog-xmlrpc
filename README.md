@@ -50,9 +50,9 @@ NAVER-BLOG-PASS=[API 연결 암호]
 
 model
 ```
-use lovizu\LaravelNaverXmlRpc\NaverBlogModel;
+use lovizu\LaravelNaverXmlRpc\model\NaverBlog;
 
-Class Model implements NaverBlogModel
+Class Model implements NaverBlog
 {
     // 필수 메서드 작성
     public function getTitle(){
