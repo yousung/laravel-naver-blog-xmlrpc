@@ -20,8 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "lovizu\\LaravelNaverXmlRpc\\": "src",
-            "lovizu\\LaravelNaverXmlRpc\\Model\\": "model"
+            "lovizu\\LaravelNaverXmlRpc\\": "src"
         }
     },
     "extra": {

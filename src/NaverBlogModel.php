@@ -1,6 +1,6 @@
 <?php
 
-namespace lovizu\LaravelNaverXmlRpc\Model;
+namespace lovizu\LaravelNaverXmlRpc;
 
 interface NaverBlog
 {
