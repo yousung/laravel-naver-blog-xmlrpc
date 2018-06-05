@@ -2,7 +2,7 @@
 
 namespace lovizu\LaravelNaverXmlRpc;
 
-interface NaverBlog
+interface NaverBlogModel
 {
     // @return string title
     public function getTitle();
